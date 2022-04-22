@@ -97,8 +97,8 @@ class Component extends Sprite {
     /**
      * Marks the component to be redrawn on the next frame.
      */
-    #if (hl || html5) override #end function invalidate():Void {
-        if (_invalidated) 
+    #if (hl || html5 || windows) override #end function invalidate():Void {
+        if (_invalidated)
             return;
 
         _invalidated = true;
