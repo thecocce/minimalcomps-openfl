@@ -97,6 +97,9 @@ class Component extends Sprite {
     /**
      * Marks the component to be redrawn on the next frame.
      */
+
+    #if !flash
+
     #if (hl || html5 || windows) override #end function invalidate():Void {
         if (_invalidated)
             return;
@@ -104,6 +107,7 @@ class Component extends Sprite {
         _invalidated = true;
         addEventListener(Event.ENTER_FRAME, onInvalidate);
     }
+    #end
 
 
     ///////////////////////////////////
@@ -170,34 +174,30 @@ class Component extends Sprite {
     /**
      * Sets/gets the width of the component.
      */
-    #if flash @:setter(width) #else override #end
-    public function set_width(value:Float): #if flash Void #else Float #end {
+    override public function set_width(value:Float): Float {
         _width = value;
         invalidate();
         dispatchEvent(new Event(Event.RESIZE));
 
-        #if !flash return _width; #end
+        return _width;
     }
 
-    #if flash @:getter(width) #else override #end
-    public function get_width():Float {
+    override public function get_width():Float {
         return _width;
     }
 
     /**
      * Sets/gets the height of the component.
      */
-    #if flash @:setter(height) #else override #end
-    public function set_height(value:Float): #if flash Void #else Float #end {
+    override public function set_height(value:Float): Float {
         _height = value;
         invalidate();
         dispatchEvent(new Event(Event.RESIZE));
 
-        #if !flash return _height; #end
+        return _height;
     }
 
-    #if flash @:getter(height) #else override #end
-    public function get_height():Float {
+    override public function get_height():Float {
         return _height;
     }
 
@@ -217,19 +217,17 @@ class Component extends Sprite {
     /**
      * Overrides the setter for x to always place the component on a whole pixel.
      */
-    #if flash @:setter(x) #else override #end
-    public function set_x(value:Float): #if flash Void #else Float #end {
+    override public function set_x(value:Float): Float {
         super.x = Math.round(value);
-        #if !flash return super.x; #end
+        return super.x;
     }
 
     /**
      * Overrides the setter for y to always place the component on a whole pixel.
      */
-    #if flash @:setter(y) #else override #end
-    public function set_y(value:Float): #if flash Void #else Float #end {
+    override public function set_y(value:Float): Float {
         super.y = Math.round(value);
-        #if !flash return super.y; #end
+        return super.y;
     }
 
     /**
