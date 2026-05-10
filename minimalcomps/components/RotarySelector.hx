@@ -124,8 +124,8 @@ class RotarySelector extends Component {
         while (_labels.numChildren > 0) {
             _labels.removeChildAt(0);
         }
-        _labels.x = _width / 2 - 5;
-        _labels.y = _height / 2 - 10;
+        _labels.x = snap(_width / 2 - 5);
+        _labels.y = snap(_height / 2 - 10);
     }
 
     /**
@@ -141,8 +141,8 @@ class RotarySelector extends Component {
         _knob.graphics.beginFill(Style.BUTTON_FACE);
         _knob.graphics.drawCircle(0, 0, radius - 2);
 
-        _knob.x = _width / 2;
-        _knob.y = _height / 2;
+        _knob.x = snap(_width / 2);
+        _knob.y = snap(_height / 2);
     }
 
 
@@ -174,7 +174,7 @@ class RotarySelector extends Component {
             graphics.moveTo(_knob.x, _knob.y);
             graphics.lineTo(_knob.x + cos * (radius + 2), _knob.y + sin * (radius + 2));
 
-            var lab:Label = new Label(_labels, cos * (radius + 10), sin * (radius + 10));
+            var lab:Label = new Label(_labels, snap(cos * (radius + 10)), snap(sin * (radius + 10)));
             lab.mouseEnabled = true;
             lab.buttonMode = true;
             lab.useHandCursor = true;
@@ -202,8 +202,8 @@ class RotarySelector extends Component {
 
         _label.text = _labelText;
         _label.draw();
-        _label.x = _width / 2 - _label.width / 2;
-        _label.y = _height + 2;
+        _label.x = snap(_width / 2 - _label.width / 2);
+        _label.y = snap(_height + 2);
     }
 
 

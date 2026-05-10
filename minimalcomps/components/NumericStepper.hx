@@ -124,10 +124,10 @@ class NumericStepper extends Component {
      * Draws the visual ui of the component.
      */
     override public function draw():Void {
-        _plusBtn.x = _width - 16;
-        _minusBtn.x = _width - 32;
+        _plusBtn.x = snap(_width - 16);
+        _minusBtn.x = snap(_width - 32);
         _valueText.text = Std.string(Math.round(_value * Math.pow(10, _labelPrecision)) / Math.pow(10, _labelPrecision));
-        _valueText.width = _width - 32;
+        _valueText.width = snap(_width - 32);
         _valueText.draw();
     }
 

@@ -183,7 +183,7 @@ class List extends Component {
         _panel.draw();
 
         // scrollbar
-        _scrollbar.x = _width - 10;
+        _scrollbar.x = snap(_width - 10);
         var contentHeight:Float = _items.length * _listItemHeight;
         _scrollbar.setThumbPercent(_height / contentHeight);
         var pageSize:Int = Math.floor(_height / _listItemHeight);

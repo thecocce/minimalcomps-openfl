@@ -108,10 +108,10 @@ class HBox extends Component {
                     child.y = 0;
                 }
                 else if (_alignment == BOTTOM) {
-                    child.y = _height - child.height;
+                    child.y = snap(_height - child.height);
                 }
                 else if (_alignment == MIDDLE) {
-                    child.y = (_height - child.height) / 2;
+                    child.y = snap((_height - child.height) / 2);
                 }
             }
         }
@@ -126,7 +126,7 @@ class HBox extends Component {
         var xpos:Float = 0;
         for (i in 0 ... numChildren) {
             var child:DisplayObject = getChildAt(i);
-            child.x = xpos;
+            child.x = snap(xpos);
             xpos += child.width;
             xpos += _spacing;
             _width += child.width;

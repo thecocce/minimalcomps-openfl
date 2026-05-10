@@ -88,9 +88,9 @@ class TextArea extends Text {
     override public function draw():Void {
         super.draw();
 
-        _tf.width = _width - _scrollbar.width - 4;
-        _scrollbar.x = _width - _scrollbar.width;
-        _scrollbar.height = _height;
+        _tf.width = snap(_width - _scrollbar.width - 4);
+        _scrollbar.x = snap(_width - _scrollbar.width);
+        _scrollbar.height = snap(_height);
         _scrollbar.draw();
         addEventListener(Event.ENTER_FRAME, onTextScrollDelay);
     }

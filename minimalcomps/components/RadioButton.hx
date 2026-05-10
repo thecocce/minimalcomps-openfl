@@ -142,7 +142,7 @@ class RadioButton extends Component {
         _button.graphics.drawCircle(5, 5, 3);
 
         _label.x = 12;
-        _label.y = (10 - _label.height) / 2;
+        _label.y = snap((10 - _label.height) / 2);
         _label.text = _labelText;
         _label.draw();
         _width = _label.width + 12;

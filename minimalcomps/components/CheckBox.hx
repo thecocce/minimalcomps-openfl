@@ -111,7 +111,7 @@ class CheckBox extends Component {
         _label.text = _labelText;
         _label.draw();
         _label.x = 12;
-        _label.y = (10 - _label.height) / 2;
+        _label.y = snap((10 - _label.height) / 2);
         _width = _label.width + 12;
         _height = 10;
     }

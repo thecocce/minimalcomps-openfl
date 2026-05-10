@@ -131,7 +131,7 @@ class ComboBox extends Component {
 
         _dropDownButton.setSize(_height, _height);
         _dropDownButton.draw();
-        _dropDownButton.x = _width - height;
+        _dropDownButton.x = snap(_width - height);
 
         _list.setSize(_width, _numVisibleItems * _list.listItemHeight);
     }

@@ -101,11 +101,11 @@ class ScrollSlider extends Slider {
         var range:Float;
         if (_orientation == Slider.HORIZONTAL) {
             range = width - _handle.width;
-            _handle.x = (_value - _min) / (_max - _min) * range;
+            _handle.x = snap((_value - _min) / (_max - _min) * range);
         }
         else {
             range = height - _handle.height;
-            _handle.y = (_value - _min) / (_max - _min) * range;
+            _handle.y = snap((_value - _min) / (_max - _min) * range);
         }
     }
 

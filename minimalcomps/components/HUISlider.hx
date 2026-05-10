@@ -74,11 +74,11 @@ class HUISlider extends UISlider {
     */
     override public function draw():Void {
         super.draw();
-        _slider.x = _label.width + 5;
-        _slider.y = height / 2 - _slider.height / 2;
-        _slider.width = width - _label.width - 50 - 10;
+        _slider.x = snap(_label.width + 5);
+        _slider.y = snap(height / 2 - _slider.height / 2);
+        _slider.width = snap(width - _label.width - 50 - 10);
 
-        _valueLabel.x = _slider.x + _slider.width + 5;
+        _valueLabel.x = snap(_slider.x + _slider.width + 5);
     }
 
 }

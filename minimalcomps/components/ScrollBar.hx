@@ -167,16 +167,16 @@ class ScrollBar extends Component {
             _scrollSlider.x = 0;
             _scrollSlider.y = 10;
             _scrollSlider.width = 10;
-            _scrollSlider.height = _height - 20;
+            _scrollSlider.height = snap(_height - 20);
             _downButton.x = 0;
-            _downButton.y = _height - 10;
+            _downButton.y = snap(_height - 10);
         }
         else {
             _scrollSlider.x = 10;
             _scrollSlider.y = 0;
-            _scrollSlider.width = _width - 20;
+            _scrollSlider.width = snap(_width - 20);
             _scrollSlider.height = 10;
-            _downButton.x = _width - 10;
+            _downButton.x = snap(_width - 10);
             _downButton.y = 0;
         }
         _scrollSlider.draw();

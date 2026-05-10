@@ -162,13 +162,13 @@ class RangeSlider extends Component {
         var range:Float;
         if (_orientation == HORIZONTAL) {
             range = _width - _height * 2;
-            _minHandle.x = (_lowValue - _minimum) / (_maximum - _minimum) * range;
-            _maxHandle.x = _height + (_highValue - _minimum) / (_maximum - _minimum) * range;
+            _minHandle.x = snap((_lowValue - _minimum) / (_maximum - _minimum) * range);
+            _maxHandle.x = snap(_height + (_highValue - _minimum) / (_maximum - _minimum) * range);
         }
         else {
             range = _height - _width * 2;
-            _minHandle.y = _height - _width - (_lowValue - _minimum) / (_maximum - _minimum) * range;
-            _maxHandle.y = _height - _width * 2 - (_highValue - _minimum) / (_maximum - _minimum) * range;
+            _minHandle.y = snap(_height - _width - (_lowValue - _minimum) / (_maximum - _minimum) * range);
+            _maxHandle.y = snap(_height - _width * 2 - (_highValue - _minimum) / (_maximum - _minimum) * range);
         }
         updateLabels();
     }
@@ -183,23 +183,23 @@ class RangeSlider extends Component {
         _highLabel.draw();
 
         if (_orientation == VERTICAL) {
-            _lowLabel.y = _minHandle.y + (_width - _lowLabel.height) * 0.5;
-            _highLabel.y = _maxHandle.y + (_width - _highLabel.height) * 0.5;
+            _lowLabel.y = snap(_minHandle.y + (_width - _lowLabel.height) * 0.5);
+            _highLabel.y = snap(_maxHandle.y + (_width - _highLabel.height) * 0.5);
             if (_labelPosition == LEFT) {
                 _lowLabel.x = -_lowLabel.width - 5;
                 _highLabel.x = -_highLabel.width - 5;
             }
             else {
-                _lowLabel.x = _width + 5;
-                _highLabel.x = _width + 5;
+                _lowLabel.x = snap(_width + 5);
+                _highLabel.x = snap(_width + 5);
             }
         }
         else {
-            _lowLabel.x = _minHandle.x - _lowLabel.width + _height;
-            _highLabel.x = _maxHandle.x;
+            _lowLabel.x = snap(_minHandle.x - _lowLabel.width + _height);
+            _highLabel.x = snap(_maxHandle.x);
             if (_labelPosition == BOTTOM) {
-                _lowLabel.y = _height + 2;
-                _highLabel.y = _height + 2;
+                _lowLabel.y = snap(_height + 2);
+                _highLabel.y = snap(_height + 2);
             }
             else {
                 _lowLabel.y = -_lowLabel.height;

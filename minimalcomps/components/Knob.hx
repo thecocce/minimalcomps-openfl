@@ -121,8 +121,8 @@ class Knob extends Component {
         _knob.graphics.drawRect(_radius, -s, s * 1.5, s * 2);
         _knob.graphics.endFill();
 
-        _knob.x = _radius;
-        _knob.y = _radius + 20;
+        _knob.x = snap(_radius);
+        _knob.y = snap(_radius + 20);
         updateKnob();
     }
 
@@ -170,7 +170,7 @@ class Knob extends Component {
         }
         _valueLabel.text = val;
         _valueLabel.draw();
-        _valueLabel.x = width / 2 - _valueLabel.width / 2;
+        _valueLabel.x = snap(width / 2 - _valueLabel.width / 2);
     }
 
 
@@ -188,12 +188,12 @@ class Knob extends Component {
 
         _label.text = _labelText;
         _label.draw();
-        _label.x = _radius - _label.width / 2;
+        _label.x = snap(_radius - _label.width / 2);
         _label.y = 0;
 
         formatValueLabel();
-        _valueLabel.x = _radius - _valueLabel.width / 2;
-        _valueLabel.y = _radius * 2 + 20;
+        _valueLabel.x = snap(_radius - _valueLabel.width / 2);
+        _valueLabel.y = snap(_radius * 2 + 20);
 
         _width = _radius * 2;
         _height = _radius * 2 + 40;

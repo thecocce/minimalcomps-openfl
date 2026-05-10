@@ -114,6 +114,29 @@ Finally, add the following code to register the font and set the `Style` class `
     #end
 
 
+## Crisp Rendering / Avoid Blurring
+
+To ensure sharp text and crisp component edges (especially on HTML5 and high-DPI displays), follow these guidelines:
+
+1. **Disable high-DPI scaling** in your `project.xml`:
+   ```xml
+   <window allow-high-dpi="false" />
+   <window antialiasing="0" />
+   ```
+
+2. **Initialize the stage** before creating components:
+   ```haxe
+   Component.initStage(stage);
+   ```
+
+3. **Automatic pixel snapping** is enabled by default. The library rounds all internal child coordinates to whole pixels when `Component.snapToPixels` is `true` (default). You can toggle this at runtime:
+   ```haxe
+   Component.snapToPixels = false; // allow sub-pixel positioning
+   ```
+
+4. **Top-level placement** of components is already rounded by the overridden `x` and `y` setters in `Component`. Avoid applying fractional scale transforms to the stage or parent containers.
+
+
 ## Generating Dox Documentation
 
 To generate documentation using dox, execute:

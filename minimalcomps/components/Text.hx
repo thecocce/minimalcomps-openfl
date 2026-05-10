@@ -104,8 +104,8 @@ class Text extends Component {
         _panel.setSize(_width, _height);
         _panel.draw();
 
-        _tf.width = _width - 4;
-        _tf.height = _height - 4;
+        _tf.width = snap(_width - 4);
+        _tf.height = snap(_height - 4);
         if (_html) {
             _tf.htmlText = _text;
         }

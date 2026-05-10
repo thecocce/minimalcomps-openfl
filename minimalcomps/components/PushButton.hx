@@ -138,7 +138,7 @@ class PushButton extends Component {
             _label.autoSize = true;
         }
         _label.draw();
-        _label.move(_width / 2 - _label.width / 2, _height / 2 - _label.height / 2);
+        _label.move(snap(_width / 2 - _label.width / 2), snap(_height / 2 - _label.height / 2));
 
     }
 

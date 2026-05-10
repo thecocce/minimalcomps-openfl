@@ -54,6 +54,21 @@ class Component extends Sprite {
 
     public static inline var DRAW:String = "draw";
 
+    /**
+     * Global flag that controls whether internal child coordinates
+     * are rounded to whole pixels. Default is true.
+     */
+    public static var snapToPixels:Bool = true;
+
+    /**
+     * Rounds a value to the nearest whole pixel when snapToPixels is enabled.
+     * @param value The float value to snap.
+     * @return The snapped value.
+     */
+    private function snap(value:Float):Float {
+        return snapToPixels ? Math.round(value) : value;
+    }
+
 
     /**
      * Constructor

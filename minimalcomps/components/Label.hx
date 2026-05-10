@@ -98,7 +98,7 @@ class Label extends Component {
         }
         else {
             _tf.autoSize = TextFieldAutoSize.NONE;
-            _tf.width = _width;
+            _tf.width = snap(_width);
         }
         _height = _tf.height = 18;
     }

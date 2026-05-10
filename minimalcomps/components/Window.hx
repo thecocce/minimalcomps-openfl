@@ -157,13 +157,13 @@ class Window extends Component {
         _titleBar.width = width;
         _titleBar.draw();
         _titleLabel.x = _hasMinimizeButton ? 20 : 5;
-        _closeButton.x = _width - 14;
-        _grips.x = _titleLabel.x + _titleLabel.width;
+        _closeButton.x = snap(_width - 14);
+        _grips.x = snap(_titleLabel.x + _titleLabel.width);
         if (_hasCloseButton) {
-            _grips.width = _closeButton.x - _grips.x - 2;
+            _grips.width = snap(_closeButton.x - _grips.x - 2);
         }
         else {
-            _grips.width = _width - _grips.x - 2;
+            _grips.width = snap(_width - _grips.x - 2);
         }
         _panel.setSize(_width, _height - 20);
         _panel.draw();

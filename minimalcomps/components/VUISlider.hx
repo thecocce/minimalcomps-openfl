@@ -64,14 +64,14 @@ class VUISlider extends UISlider {
 
     override public function draw():Void {
         super.draw();
-        _label.x = width / 2 - _label.width / 2;
+        _label.x = snap(width / 2 - _label.width / 2);
 
-        _slider.x = width / 2 - _slider.width / 2;
-        _slider.y = _label.height + 5;
-        _slider.height = height - _label.height - _valueLabel.height - 10;
+        _slider.x = snap(width / 2 - _slider.width / 2);
+        _slider.y = snap(_label.height + 5);
+        _slider.height = snap(height - _label.height - _valueLabel.height - 10);
 
-        _valueLabel.x = width / 2 - _valueLabel.width / 2;
-        _valueLabel.y = _slider.y + _slider.height + 5;
+        _valueLabel.x = snap(width / 2 - _valueLabel.width / 2);
+        _valueLabel.y = snap(_slider.y + _slider.height + 5);
     }
 
     override private function positionLabel():Void {

@@ -118,9 +118,9 @@ class Meter extends Component {
         drawTicks(startAngle, endAngle);
         drawNeedle();
 
-        _minLabel.move(10, _height - _minLabel.height - 4);
-        _maxLabel.move(_width - _maxLabel.width - 10, _height - _maxLabel.height - 4);
-        _label.move((_width - _label.width) / 2, _height * .5);
+        _minLabel.move(10, snap(_height - _minLabel.height - 4));
+        _maxLabel.move(snap(_width - _maxLabel.width - 10), snap(_height - _maxLabel.height - 4));
+        _label.move(snap((_width - _label.width) / 2), snap(_height * .5));
         update();
     }
 
@@ -157,8 +157,8 @@ class Meter extends Component {
      * Draws the dial.
      */
     private function drawDial(startAngle:Float, endAngle:Float):Void {
-        _dial.x = _width / 2;
-        _dial.y = _height * 1.25;
+        _dial.x = snap(_width / 2);
+        _dial.y = snap(_height * 1.25);
         _dial.graphics.clear();
         _dial.graphics.lineStyle(0, Style.BACKGROUND);
         _dial.graphics.beginFill(Style.BUTTON_FACE);

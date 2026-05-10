@@ -113,10 +113,10 @@ class VBox extends Component {
                     child.x = 0;
                 }
                 else if (_alignment == RIGHT) {
-                    child.x = _width - child.width;
+                    child.x = snap(_width - child.width);
                 }
                 else if (_alignment == CENTER) {
-                    child.x = (_width - child.width) / 2;
+                    child.x = snap((_width - child.width) / 2);
                 }
             }
         }
@@ -131,7 +131,7 @@ class VBox extends Component {
         var ypos:Float = 0.0;
         for (i in 0 ... numChildren) {
             var child:DisplayObject = getChildAt(i);
-            child.y = ypos;
+            child.y = snap(ypos);
             ypos += child.height;
             ypos += _spacing;
             _height += child.height;

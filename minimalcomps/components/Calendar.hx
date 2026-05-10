@@ -164,7 +164,7 @@ class Calendar extends Panel {
 
         _dateLabel.text = _monthNames[_month] + "  " + _year;
         _dateLabel.draw();
-        _dateLabel.x = (width - _dateLabel.width) / 2;
+        _dateLabel.x = snap((width - _dateLabel.width) / 2);
     }
 
     /**

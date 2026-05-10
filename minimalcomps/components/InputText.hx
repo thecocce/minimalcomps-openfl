@@ -105,17 +105,17 @@ class InputText extends Component {
         else {
             _tf.text = "";
         }
-        _tf.width = _width - 4;
+        _tf.width = snap(_width - 4);
         if (_tf.text == "") {
             _tf.text = "X";
-            _tf.height = Math.min(_tf.textHeight + 4, _height);
+            _tf.height = snap(Math.min(_tf.textHeight + 4, _height));
             _tf.text = "";
         }
         else {
-            _tf.height = Math.min(_tf.textHeight + 4, _height);
+            _tf.height = snap(Math.min(_tf.textHeight + 4, _height));
         }
         _tf.x = 2;
-        _tf.y = Math.round(_height / 2 - _tf.height / 2);
+        _tf.y = snap(_height / 2 - _tf.height / 2);
     }
 
 

@@ -96,24 +96,24 @@ class ScrollPane extends Panel {
         var vPercent:Float = (_height - 10) / content.height;
         var hPercent:Float = (_width - 10) / content.width;
 
-        _vScrollbar.x = width - 10;
-        _hScrollbar.y = height - 10;
+        _vScrollbar.x = snap(width - 10);
+        _hScrollbar.y = snap(height - 10);
 
         if (hPercent >= 1) {
-            _vScrollbar.height = height;
-            _mask.height = height;
+            _vScrollbar.height = snap(height);
+            _mask.height = snap(height);
         }
         else {
-            _vScrollbar.height = height - 10;
-            _mask.height = height - 10;
+            _vScrollbar.height = snap(height - 10);
+            _mask.height = snap(height - 10);
         }
         if (vPercent >= 1) {
-            _hScrollbar.width = width;
-            _mask.width = width;
+            _hScrollbar.width = snap(width);
+            _mask.width = snap(width);
         }
         else {
-            _hScrollbar.width = width - 10;
-            _mask.width = width - 10;
+            _hScrollbar.width = snap(width - 10);
+            _mask.width = snap(width - 10);
         }
         _vScrollbar.setThumbPercent(vPercent);
         _vScrollbar.maximum = Math.max(0, content.height - _height + 10);
@@ -123,11 +123,11 @@ class ScrollPane extends Panel {
         _hScrollbar.maximum = Math.max(0, content.width - _width + 10);
         _hScrollbar.pageSize = Math.floor(_width - 10);
 
-        _corner.x = width - 10;
-        _corner.y = height - 10;
+        _corner.x = snap(width - 10);
+        _corner.y = snap(height - 10);
         _corner.visible = (hPercent < 1) && (vPercent < 1);
-        content.x = -_hScrollbar.value;
-        content.y = -_vScrollbar.value;
+        content.x = snap(-_hScrollbar.value);
+        content.y = snap(-_vScrollbar.value);
     }
 
     /**
@@ -146,8 +146,8 @@ class ScrollPane extends Panel {
      * Called when either scroll bar is scrolled.
      */
     private function onScroll(event:Event):Void {
-        content.x = -_hScrollbar.value;
-        content.y = -_vScrollbar.value;
+        content.x = snap(-_hScrollbar.value);
+        content.y = snap(-_vScrollbar.value);
     }
 
     private function onResize(event:Event):Void {

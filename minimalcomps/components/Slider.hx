@@ -152,11 +152,11 @@ class Slider extends Component {
         var range:Float;
         if (_orientation == HORIZONTAL) {
             range = _width - _height;
-            _handle.x = (_value - _min) / (_max - _min) * range;
+            _handle.x = snap((_value - _min) / (_max - _min) * range);
         }
         else {
             range = _height - _width;
-            _handle.y = _height - _width - (_value - _min) / (_max - _min) * range;
+            _handle.y = snap(_height - _width - (_value - _min) / (_max - _min) * range);
         }
     }
 
