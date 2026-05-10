@@ -3,6 +3,7 @@ package;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import minimalcomps.components.*;
+import minimalcomps.components.Style;
 
 class Main extends Sprite {
 
@@ -15,10 +16,12 @@ class Main extends Sprite {
         removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
         Component.initStage(stage);
+        Style.setStyle(Style.LIGHT);
 
         // Main container panel
         var panel:Panel = new Panel(this, 10, 10);
         panel.setSize(780, 580);
+        panel.filters = []; // remove drop-shadow for maximum crispness
         panel.draw();
 
         var xPos:Float = 20;

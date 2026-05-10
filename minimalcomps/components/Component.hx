@@ -37,6 +37,7 @@ import openfl.display.DisplayObjectContainer;
 import openfl.display.Sprite;
 import openfl.display.Stage;
 import openfl.display.StageAlign;
+import openfl.display.StageQuality;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
 import openfl.filters.DropShadowFilter;
@@ -59,6 +60,13 @@ class Component extends Sprite {
      * are rounded to whole pixels. Default is true.
      */
     public static var snapToPixels:Bool = true;
+
+    /**
+     * Global flag that controls whether drop shadow filters are applied.
+     * Disabling filters can significantly improve crispness.
+     * Default is true.
+     */
+    public static var enableFilters:Bool = true;
 
     /**
      * Rounds a value to the nearest whole pixel when snapToPixels is enabled.
@@ -106,6 +114,9 @@ class Component extends Sprite {
      * @param knockout Whether or not to create a knocked out shadow.
      */
     private function getShadow(dist:Float, knockout:Bool = false):DropShadowFilter {
+        if (!enableFilters) {
+            return null;
+        }
         return new DropShadowFilter(dist, 45, Style.DROPSHADOW, 1, dist, dist, .3, 1, knockout);
     }
 
@@ -131,6 +142,9 @@ class Component extends Sprite {
     public static function initStage(stage:Stage):Void {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
+        #if !flash
+        stage.quality = StageQuality.LOW;
+        #end
 
         #if js
         var canvas = js.Browser.document.querySelector("canvas");
@@ -141,6 +155,13 @@ class Component extends Sprite {
                 untyped ctx.mozImageSmoothingEnabled = false;
                 untyped ctx.webkitImageSmoothingEnabled = false;
                 untyped ctx.msImageSmoothingEnabled = false;
+            }
+            var style = untyped canvas.style;
+            if (style != null) {
+                style.imageRendering = "pixelated";
+                style.imageRendering = "-moz-crisp-edges";
+                style.imageRendering = "-webkit-optimize-contrast";
+                style.msInterpolationMode = "nearest-neighbor";
             }
         }
         #end

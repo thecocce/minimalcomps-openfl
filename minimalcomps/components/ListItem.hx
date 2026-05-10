@@ -28,6 +28,8 @@
 
 package minimalcomps.components;
 
+import openfl.text.AntiAliasType;
+import openfl.text.GridFitType;
 import openfl.events.MouseEvent;
 import openfl.display.DisplayObjectContainer;
 

@@ -29,6 +29,8 @@ package minimalcomps.components;
 import openfl.display.DisplayObjectContainer;
 import openfl.display.Sprite;
 import openfl.events.Event;
+import openfl.text.AntiAliasType;
+import openfl.text.GridFitType;
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import openfl.text.TextFormat;
@@ -76,6 +78,9 @@ class InputText extends Component {
         _tf.embedFonts = Style.embedFonts;
         _tf.selectable = true;
         _tf.type = TextFieldType.INPUT;
+        _tf.sharpness = 400;
+        _tf.antiAliasType = AntiAliasType.ADVANCED;
+        _tf.gridFitType = GridFitType.PIXEL;
         _tf.defaultTextFormat = new TextFormat(Style.fontName, Style.fontSize, Style.INPUT_TEXT);
         addChild(_tf);
         _tf.addEventListener(Event.CHANGE, onChange);
