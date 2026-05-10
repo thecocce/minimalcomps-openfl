@@ -30,8 +30,6 @@ package minimalcomps.components;
 
 import openfl.display.DisplayObjectContainer;
 import openfl.events.Event;
-import openfl.text.AntiAliasType;
-import openfl.text.GridFitType;
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFormat;
@@ -76,9 +74,6 @@ class Label extends Component {
         _tf.embedFonts = Style.embedFonts;
         _tf.selectable = false;
         _tf.mouseEnabled = false;
-        _tf.sharpness = 400;
-        _tf.antiAliasType = AntiAliasType.ADVANCED;
-        _tf.gridFitType = GridFitType.PIXEL;
         _tf.defaultTextFormat = new TextFormat(Style.fontName, Style.fontSize, Style.LABEL_TEXT);
         _tf.text = _text;
         addChild(_tf);
