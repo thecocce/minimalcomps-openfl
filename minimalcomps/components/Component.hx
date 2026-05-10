@@ -114,10 +114,17 @@ class Component extends Sprite {
      * @param knockout Whether or not to create a knocked out shadow.
      */
     private function getShadow(dist:Float, knockout:Bool = false):DropShadowFilter {
-        if (!enableFilters) {
-            return null;
-        }
         return new DropShadowFilter(dist, 45, Style.DROPSHADOW, 1, dist, dist, .3, 1, knockout);
+    }
+
+    /**
+     * Applies a drop shadow filter to a target display object.
+     * Respects the global Component.enableFilters flag.
+     */
+    private function applyFilter(target:openfl.display.DisplayObject, dist:Float, knockout:Bool = false):Void {
+        if (enableFilters) {
+            target.filters = [getShadow(dist, knockout)];
+        }
     }
 
     /**

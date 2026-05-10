@@ -69,7 +69,7 @@ class InputText extends Component {
      */
     override private function addChildren():Void {
         _back = new Sprite();
-        _back.filters = [getShadow(2, true)];
+        applyFilter(_back, 2, true);
         addChild(_back);
 
         _tf = new TextField();

@@ -123,7 +123,7 @@ class Window extends Component {
         _closeButton = new PushButton(null, 86, 6, "", onClose);
         _closeButton.setSize(8, 8);
 
-        filters = [getShadow(4, false)];
+            applyFilter(this, 4, false);
     }
 
 
@@ -217,7 +217,7 @@ class Window extends Component {
     public function set_shadow(value:Bool):Bool {
         _shadow = value;
         if (_shadow) {
-            filters = [getShadow(4, false)];
+        applyFilter(this, 4, false);
         }
         else {
             filters = [];

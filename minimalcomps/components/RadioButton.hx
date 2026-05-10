@@ -108,11 +108,11 @@ class RadioButton extends Component {
      */
     override private function addChildren():Void {
         _back = new Sprite();
-        _back.filters = [getShadow(2, true)];
+        applyFilter(_back, 2, true);
         addChild(_back);
 
         _button = new Sprite();
-        _button.filters = [getShadow(1)];
+        applyFilter(_button, 1);
         _button.visible = false;
         addChild(_button);
 

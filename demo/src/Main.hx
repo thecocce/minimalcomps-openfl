@@ -16,6 +16,7 @@ class Main extends Sprite {
         removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
         Component.initStage(stage);
+        Component.enableFilters = false; // remove all drop-shadows for crisp rendering test
         Style.setStyle(Style.LIGHT);
 
         // Main container panel

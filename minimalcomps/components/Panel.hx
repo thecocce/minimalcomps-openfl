@@ -83,7 +83,7 @@ class Panel extends Component {
         super.addChild(content);
         content.mask = _mask;
 
-        filters = [getShadow(2, true)];
+            applyFilter(this, 2, true);
     }
 
 
@@ -185,7 +185,7 @@ class Panel extends Component {
     public function set_shadow(value:Bool):Bool {
         _shadow = value;
         if (_shadow) {
-            filters = [getShadow(2, true)];
+        applyFilter(this, 2, true);
         }
         else {
             filters = [];

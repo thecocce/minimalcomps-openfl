@@ -110,7 +110,7 @@ class ColorChooser extends Component {
 
         _swatch = new Sprite();
         _swatch.x = 50;
-        _swatch.filters = [getShadow(2, true)];
+        applyFilter(_swatch, 2, true);
         addChild(_swatch);
 
         _colorsContainer = new Sprite();

@@ -65,13 +65,13 @@ class ProgressBar extends Component {
      */
     override private function addChildren():Void {
         _back = new Sprite();
-        _back.filters = [getShadow(2, true)];
+        applyFilter(_back, 2, true);
         addChild(_back);
 
         _bar = new Sprite();
         _bar.x = 1;
         _bar.y = 1;
-        _bar.filters = [getShadow(1)];
+        applyFilter(_bar, 1);
         addChild(_bar);
     }
 

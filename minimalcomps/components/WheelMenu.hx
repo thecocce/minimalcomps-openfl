@@ -90,7 +90,9 @@ class WheelMenu extends Component {
         _items = [];
         makeButtons();
 
-        filters = [new DropShadowFilter(4, 45, 0, 1, 4, 4, .2, 4)];
+        if (Component.enableFilters) {
+            filters = [new DropShadowFilter(4, 45, 0, 1, 4, 4, .2, 4)];
+        }
     }
 
     /**
