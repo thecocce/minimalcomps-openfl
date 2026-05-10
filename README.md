@@ -136,6 +136,13 @@ To ensure sharp text and crisp component edges (especially on HTML5 and high-DPI
 
 4. **Top-level placement** of components is already rounded by the overridden `x` and `y` setters in `Component`. Avoid applying fractional scale transforms to the stage or parent containers.
 
+5. **Disable filters** if you need maximum crispness. Drop-shadow filters force OpenFL to render components to intermediate bitmaps, which often introduces blurring:
+   ```haxe
+   Component.enableFilters = false;
+   ```
+
+6. If text still looks blurry, the font rasterizer (FreeType on native targets, the browser on HTML5) is applying grey-scale antialiasing to the embedded TTF font at small sizes. This is a limitation of vector font rendering. You can try increasing `Style.fontSize` slightly or using a bitmap-font-based text renderer instead of `TextField`.
+
 
 ## Generating Dox Documentation
 
