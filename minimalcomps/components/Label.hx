@@ -93,7 +93,7 @@ class Label extends Component {
         _tf.text = _text;
         if (_autoSize) {
             _tf.autoSize = TextFieldAutoSize.LEFT;
-            _width = _tf.width;
+            _width = snap(_tf.width);
             dispatchEvent(new Event(Event.RESIZE));
         }
         else {

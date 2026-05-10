@@ -131,6 +131,19 @@ class Component extends Sprite {
     public static function initStage(stage:Stage):Void {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
+
+        #if js
+        var canvas = js.Browser.document.querySelector("canvas");
+        if (canvas != null) {
+            var ctx = untyped canvas.getContext("2d");
+            if (ctx != null) {
+                ctx.imageSmoothingEnabled = false;
+                untyped ctx.mozImageSmoothingEnabled = false;
+                untyped ctx.webkitImageSmoothingEnabled = false;
+                untyped ctx.msImageSmoothingEnabled = false;
+            }
+        }
+        #end
     }
 
     /**
@@ -149,8 +162,8 @@ class Component extends Sprite {
      * @param h The height of the component.
      */
     public function setSize(w:Float, h:Float):Void {
-        _width = w;
-        _height = h;
+        _width = snap(w);
+        _height = snap(h);
         dispatchEvent(new Event(Event.RESIZE));
         invalidate();
     }
@@ -187,7 +200,7 @@ class Component extends Sprite {
      */
     #if flash @:setter(width) #else override #end
     public function set_width(value:Float): #if flash Void #else Float #end {
-        _width = value;
+        _width = snap(value);
         invalidate();
         dispatchEvent(new Event(Event.RESIZE));
 
@@ -204,7 +217,7 @@ class Component extends Sprite {
      */
     #if flash @:setter(height) #else override #end
     public function set_height(value:Float): #if flash Void #else Float #end {
-        _height = value;
+        _height = snap(value);
         invalidate();
         dispatchEvent(new Event(Event.RESIZE));
 
