@@ -18,6 +18,7 @@ class Main extends Sprite {
         Component.initStage(stage);
         Component.enableFilters = false; // remove all drop-shadows for crisp rendering test
         Style.setStyle(Style.LIGHT);
+        Style.fontSize = 10;
 
         // Main container panel
         var panel:Panel = new Panel(this, 10, 10);

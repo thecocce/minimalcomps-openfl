@@ -149,9 +149,6 @@ class Component extends Sprite {
     public static function initStage(stage:Stage):Void {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
-        #if !flash
-        stage.quality = StageQuality.LOW;
-        #end
 
         #if js
         var canvas = js.Browser.document.querySelector("canvas");
