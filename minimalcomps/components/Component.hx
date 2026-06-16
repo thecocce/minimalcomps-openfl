@@ -97,7 +97,17 @@ class Component extends Sprite {
     /**
      * Marks the component to be redrawn on the next frame.
      */
-	#if (openfl >= "8.0.0") override public #else private #end function invalidate():Void {
+	#if (openfl >= "9.0.0")
+		#if flash
+			public function invalidate():Void {
+		#else
+			override public function invalidate():Void {
+		#end
+	#elseif (openfl >= "8.0.0")
+		override public function invalidate():Void {
+	#else
+		private function invalidate():Void {
+	#end
         if (_invalidated) 
             return;
 
@@ -170,34 +180,50 @@ class Component extends Sprite {
     /**
      * Sets/gets the width of the component.
      */
-    #if flash @:setter(width) #else override #end
-    public function set_width(value:Float): #if flash Void #else Float #end {
+    #if (openfl >= "9.0.0" || !flash)
+        override public function set_width(value:Float):Float
+    #else
+        @:setter(width) public function set_width(value:Float):Void
+    #end
+    {
         _width = value;
         invalidate();
         dispatchEvent(new Event(Event.RESIZE));
 
-        #if !flash return _width; #end
+        #if (openfl >= "9.0.0" || !flash) return _width; #end
     }
 
-    #if flash @:getter(width) #else override #end
-    public function get_width():Float {
+    #if (openfl >= "9.0.0" || !flash)
+        override public function get_width():Float
+    #else
+        @:getter(width) public function get_width():Float
+    #end
+    {
         return _width;
     }
 
     /**
      * Sets/gets the height of the component.
      */
-    #if flash @:setter(height) #else override #end
-    public function set_height(value:Float): #if flash Void #else Float #end {
+    #if (openfl >= "9.0.0" || !flash)
+        override public function set_height(value:Float):Float
+    #else
+        @:setter(height) public function set_height(value:Float):Void
+    #end
+    {
         _height = value;
         invalidate();
         dispatchEvent(new Event(Event.RESIZE));
 
-        #if !flash return _height; #end
+        #if (openfl >= "9.0.0" || !flash) return _height; #end
     }
 
-    #if flash @:getter(height) #else override #end
-    public function get_height():Float {
+    #if (openfl >= "9.0.0" || !flash)
+        override public function get_height():Float
+    #else
+        @:getter(height) public function get_height():Float
+    #end
+    {
         return _height;
     }
 
@@ -217,19 +243,27 @@ class Component extends Sprite {
     /**
      * Overrides the setter for x to always place the component on a whole pixel.
      */
-    #if flash @:setter(x) #else override #end
-    public function set_x(value:Float): #if flash Void #else Float #end {
+    #if (openfl >= "9.0.0" || !flash)
+        override public function set_x(value:Float):Float
+    #else
+        @:setter(x) public function set_x(value:Float):Void
+    #end
+    {
         super.x = Math.round(value);
-        #if !flash return super.x; #end
+        #if (openfl >= "9.0.0" || !flash) return super.x; #end
     }
 
     /**
      * Overrides the setter for y to always place the component on a whole pixel.
      */
-    #if flash @:setter(y) #else override #end
-    public function set_y(value:Float): #if flash Void #else Float #end {
+    #if (openfl >= "9.0.0" || !flash)
+        override public function set_y(value:Float):Float
+    #else
+        @:setter(y) public function set_y(value:Float):Void
+    #end
+    {
         super.y = Math.round(value);
-        #if !flash return super.y; #end
+        #if (openfl >= "9.0.0" || !flash) return super.y; #end
     }
 
     /**
