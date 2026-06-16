@@ -127,13 +127,13 @@ class ArcButton extends Sprite {
         while (_iconHolder.numChildren > 0)
             _iconHolder.removeChildAt(0);
 
-        if (Std.is(iconOrLabel, Class)) {
+        if (Std.isOfType(iconOrLabel, Class)) {
             _icon = Type.createInstance(iconOrLabel, []);
         }
-        else if (Std.is(iconOrLabel, DisplayObject)) {
+        else if (Std.isOfType(iconOrLabel, DisplayObject)) {
             _icon = cast(iconOrLabel, DisplayObject);
         }
-        else if (Std.is(iconOrLabel, String)) {
+        else if (Std.isOfType(iconOrLabel, String)) {
             _icon = new Label(null, 0, 0, cast(iconOrLabel, String));
             cast(_icon, Label).draw();
         }

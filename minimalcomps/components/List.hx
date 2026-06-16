@@ -259,7 +259,7 @@ class List extends Component {
      * Called when a user selects an item in the list.
      */
     private function onSelect(event:Event):Void {
-        if (!Std.is(event.target, ListItem))
+        if (!Std.isOfType(event.target, ListItem))
             return;
 
         var offset:Int = Math.floor(_scrollbar.value);

@@ -101,10 +101,10 @@ class ListItem extends Component {
         if (_data == null)
             return;
 
-        if (Std.is(_data, String)) {
+        if (Std.isOfType(_data, String)) {
             _label.text = cast(_data, String);
         }
-        else if (Reflect.hasField(_data, "label") && Std.is(_data.label, String)) {
+        else if (Reflect.hasField(_data, "label") && Std.isOfType(_data.label, String)) {
             _label.text = _data.label;
         }
         else {

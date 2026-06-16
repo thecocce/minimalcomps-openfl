@@ -173,7 +173,7 @@ class PieChart extends Chart {
      * @property index The index of the data to get the value for.
      */
     private function getValueForData(index:Int):Float {
-        if (Std.is(_data[index], Float)) {
+        if (Std.isOfType(_data[index], Float)) {
             return _data[index];
         }
         if (Reflect.hasField(_data[index], "value")) {
